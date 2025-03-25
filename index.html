@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Department Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="index.css"-->
+    <style>
+    body {
+        background-color: #f8f9fa; /* Light grey background */
+    }
+    
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        border: 1px solid #ced4da; /* Light border */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Softer shadow */
+        background-color: #ffffff; /* White container */
+    }
+    
+    h2 {
+        color: #007bff; /* Primary blue for heading */
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    label {
+        color: #495057; /* Darker grey for labels */
+        font-weight: bold;
+    }
+    
+    .form-control:focus {
+        border-color: #80bdff; /* Light blue border on focus */
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light blue shadow on focus */
+    }
+    
+    .btn-primary {
+        background-color: #007bff; /* Primary blue button */
+        border-color: #007bff;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }
+    
+    .error-message {
+        color: #dc3545; /* Red for error messages */
+        font-size: 0.8em;
+        margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>ADDITIONAL INFO FROM HR DEPT.</h2>
+        <form action="process.php" method="post">
+            <div class="form-group">
+                <label for="attrition_workmen">Attrition % in workmen category(required):</label>
+                <textarea class = "form-control" id="attrition_workmen" name="attrition_workmen" required></textarea>
+                <div class="error-message" id="attrition_workmen_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="attrition_junior_middle">Attrition % in junior / middle management(required):</label>
+                <textarea class = "form-control" id="attrition_junior_middle" name="attrition_junior_middle" required></textarea>
+                <div class="error-message" id="attrition_junior_middle_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="attrition_senior">Attrition % in senior management(required):</label>
+                <textarea class="form-control" id="attrition_senior" name="attrition_senior" required></textarea>
+                <div class="error-message" id="attrition_senior_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="absenteeism_workmen">Absenteeism % of workmen category(required):</label>
+                <textarea class="form-control" id="absenteeism_workmen" name="absenteeism_workmen" required></textarea>
+                <div class="error-message" id="absenteeism_workmen_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="training_programs">Number of Training programs conducted for workmen category(required):</label>
+                <textarea class="form-control"  id="training_programs" name="training_programs" required></textarea>
+                <div class="error-message" id="training_programs_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="attendance_percentage">Attendance percentage of workmen for the Training programs against 100%(required):</label>
+                <textarea class="form-control" id="attendance_percentage" name="attendance_percentage" required></textarea>
+                <div class="error-message" id="attendance_percentage_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="job_descriptions">Do job descriptions exist and are they up to date for all the job categories?(required):</label>
+                <select class="form-control" id="job_descriptions" name="job_descriptions" required>
+                    <option value = "">Select Yes/No</option>
+                    <option value = "yes">Yes</option>
+                    <option value = "no">No</option>
+                    </select>
+                <div class="error-message" id="job_descriptions_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="pms_process">Is a formal performance management (PMS - KRAs / KPIs) process in place? (required):</label>
+                <select class="form-control"  id="pms_process" name="pms_process" required>
+                    <option value = "">Select Yes/No</option>
+                    <option value = "yes">Yes</option>
+                    <option value = "no">No</option>
+                    </select>
+                <div class="error-message" id="pms_process_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="pms_followed">Is the PMS process consistently followed? (required):</label>
+                <select class="form-control" id="pms_followed" name="pms_followed" required>
+                    <option value = "">Select Yes/No</option>
+                    <option value = "yes">Yes</option>
+                    <option value = "no">No</option>
+                    </select>
+                <div class="error-message" id="pms_followed_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <label for="performance_communicated">Are performance measures and expectations communicated clearly to employees? (required):</label>
+                <select class="form-control" id="performance_communicated" name="performance_communicated" required>
+                    <option value = "">Select Yes/No</option>
+                    <option value = "yes">Yes</option>
+                    <option value = "no">No</option>
+                    </select>
+                <div class="error-message" id="performance_communicated_error"></div> 
+            </div>
+
+            <div class="form-group">
+                <button type = "submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('hrForm').addEventListener('submit', function(event) {
+            let isValid = true;
+
+            function validateInput(inputId, errorId){
+                const input = document.getElementById(inputId);
+                const errorDiv = document.getElementById(errorId);
+
+                if(!input.value.trim()) {
+                    errorDiv.textContent = 'This field is required';
+                    isValid = false;
+                } else {
+                    errorDiv.textContent = '';
+                }
+            }
+            function validateSelect(selectId, errorId) {
+                const select = document.getElementById(selectId);
+                const errorDiv = document.getElementById(errorId);
+
+                if(!select.value) {
+                    errorDiv.textContent = 'Please select an option';
+                    isValid = false;
+                } else {
+                    errorDiv.textContent = '';
+                }
+            }
+            validateInput('attrition_workmen', 'attrition_workmen_error');
+            validateInput('attrition_junior_middle', 'attrition_junior_middle_error');
+            validateInput('attrition_senior', 'attrition_senior_error');
+            validateInput('absenteeism_workmen', 'absenteeism_workmen_error');
+            validateInput('training_programs', 'training_programs_error');
+            validateInput('attendance_percentage', 'attendance_percentage_error');
+            validateInput('job_descriptions', 'job_descriptions_error');
+            validateInput('pms_process', 'pms_process_error');
+            validateInput('pms_followed', 'pms_followed_error');
+            validateInput('performance_communicated', 'performance_communicated_error');
+
+            if(!isValid){
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
